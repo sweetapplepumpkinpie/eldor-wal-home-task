@@ -23,3 +23,16 @@ $ npm start
 
 ready - started server on 0.0.0.0:3000, url: http://localhost:3000
 ```
+
+### How to test
+
+When you visit `http://localhost:3000`, you can see the list of users.
+After 10 seconds you can see the NewsletterForm.
+
+When you click on one user, you can see the list of posts for that user under the NewsletterForm.
+If the number of posts is 0, you can see 'No Posts'.
+
+You can see the PostForm below the posts.
+
+- If you click the 'Add' button without filling in the inputs, you may receive an alert saying 'Please insert data'.
+- If you click the 'Add' button after filling, you may receive an alert saying 'New Post ID: {id}'.

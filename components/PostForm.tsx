@@ -9,11 +9,18 @@ export default function PostFrom({ userId }: {userId : string}) {
   const onChange = useCallback(({ target: { name, value } }) => {
     setState(state => ({ ...state, [name]: value }))
   }, [])
+  const validateForm = () => {
+    return state.title && state.body
+  }
   const handleSubmit = async () => {
     setState(defaultState)
-    const postId = await createNewPost(state.title, state.body,Number(userId))
-
-    console.log(postId)
+    if (validateForm()) {
+      const post = await createNewPost(state.title, state.body,Number(userId))
+  
+      alert(`New post id: ${post.id}`)
+    } else {
+      alert(`Please insert data`)
+    }
   }
 
   return (
@@ -33,7 +40,7 @@ export default function PostFrom({ userId }: {userId : string}) {
           value={state.body}
         />
       </div>
-      <button onClick={handleSubmit}>Submit</button>
+      <button onClick={handleSubmit}>Add</button>
     </form>
   );
 }

@@ -37,12 +37,14 @@ export default function IndexPage({ users }) {
         </div>
       )}
       {posts && <>
-        {posts.map(post => (
+        {posts.length ? posts.map(post => (
           <div key={post.id}>
             <div>Title: {post.title}</div>
             <div>Content: {post.body}</div>
           </div>
-        ))}
+        )):
+        <div>No posts</div>
+        }
         <PostFrom userId={selectedUserId} />
       </>}
     </>
